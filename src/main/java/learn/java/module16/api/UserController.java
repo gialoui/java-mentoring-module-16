@@ -1,5 +1,6 @@
 package learn.java.module16.api;
 
+import learn.java.module16.dto.SportDto;
 import learn.java.module16.dto.UserDto;
 import learn.java.module16.entity.UserEntity;
 import learn.java.module16.service.UserService;
@@ -23,6 +24,12 @@ public class UserController {
     @RequestMapping(method = RequestMethod.POST)
     public ResponseEntity<String> create(@RequestBody UserDto json) {
         return ResponseEntity.ok(service.create(json));
+    }
+
+    @RequestMapping(value = "/{id}/sport", method = RequestMethod.PUT)
+    public ResponseEntity<String> addSport(@PathVariable("id") String id,
+                                           @RequestBody SportDto json) {
+        return ResponseEntity.ok(service.addSport(id, json));
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)

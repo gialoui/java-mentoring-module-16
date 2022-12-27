@@ -1,5 +1,6 @@
 package learn.java.module16.entity;
 
+import learn.java.module16.entity.embedded.Sport;
 import learn.java.module16.enums.Gender;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -11,6 +12,7 @@ import org.springframework.data.couchbase.core.mapping.Field;
 
 import javax.validation.constraints.NotNull;
 import java.util.Date;
+import java.util.List;
 
 /**
  * @author khangndd
@@ -39,4 +41,7 @@ public class UserEntity {
     @Field
     @NotNull
     private Gender gender;
+
+    @Field
+    private List<Sport> sports;
 }
