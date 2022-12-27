@@ -31,4 +31,8 @@ public class UserService {
     public UserEntity findById(String id) {
         return repository.findById(id).orElse(null);
     }
+
+    public UserEntity findByEmail(String email) {
+        return repository.findByEmail(email);
+    }
 }

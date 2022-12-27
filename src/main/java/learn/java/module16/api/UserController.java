@@ -29,4 +29,9 @@ public class UserController {
     public ResponseEntity<UserEntity> findById(@PathVariable("id") String id) {
         return ResponseEntity.ok(service.findById(id));
     }
+
+    @RequestMapping(value = "/by-email/{email}", method = RequestMethod.GET)
+    public ResponseEntity<UserEntity> findByEmail(@PathVariable("email") String email) {
+        return ResponseEntity.ok(service.findByEmail(email));
+    }
 }

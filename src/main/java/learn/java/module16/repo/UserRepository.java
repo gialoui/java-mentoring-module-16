@@ -11,4 +11,5 @@ import org.springframework.stereotype.Repository;
 @Repository
 @Collection("member")
 public interface UserRepository extends CouchbaseRepository<UserEntity, String> {
+    public UserEntity findByEmail(String email);
 }
