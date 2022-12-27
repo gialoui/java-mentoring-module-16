@@ -12,6 +12,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
 
 /**
@@ -43,7 +44,7 @@ public class UserService {
             if (entity.getSports() == null) {
                 entity.setSports(new ArrayList<>());
             }
-            
+
             entity.getSports().add(sportEntity);
             entity.setSports(entity.getSports());
 
@@ -60,5 +61,9 @@ public class UserService {
 
     public UserEntity findByEmail(String email) {
         return repository.findByEmail(email);
+    }
+
+    public List<UserEntity> findBySportName(String sportName) {
+        return repository.findBySportName(sportName);
     }
 }

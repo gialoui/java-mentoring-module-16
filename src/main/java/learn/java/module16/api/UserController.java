@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 /**
  * @author khangndd
  */
@@ -40,5 +42,10 @@ public class UserController {
     @RequestMapping(value = "/by-email/{email}", method = RequestMethod.GET)
     public ResponseEntity<UserEntity> findByEmail(@PathVariable("email") String email) {
         return ResponseEntity.ok(service.findByEmail(email));
+    }
+
+    @RequestMapping(value = "/sport/{sportName}", method = RequestMethod.GET)
+    public ResponseEntity<List<UserEntity>> findBySportName(@PathVariable("sportName") String sportName) {
+        return ResponseEntity.ok(service.findBySportName(sportName));
     }
 }
