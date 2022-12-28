@@ -66,4 +66,8 @@ public class UserService {
     public List<UserEntity> findBySportName(String sportName) {
         return repository.findBySportName(sportName);
     }
+
+    public List<UserEntity> search(String text) {
+        return repository.search(text);
+    }
 }

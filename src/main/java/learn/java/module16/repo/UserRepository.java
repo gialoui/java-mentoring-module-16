@@ -18,4 +18,7 @@ public interface UserRepository extends CouchbaseRepository<UserEntity, String> 
 
     @Query("#{#n1ql.selectEntity} WHERE #{#n1ql.filter} AND ANY s IN sports SATISFIES s.sportName IN [$1] END")
     List<UserEntity> findBySportName(String sportName);
+
+    @Query("#{#n1ql.selectEntity} WHERE SEARCH(#{#n1ql.collection}, {\"explain\":true,\"fields\":[\"*\"],\"highlight\":{},\"query\":{\"query\":$1}})")
+    List<UserEntity> search(String text);
 }
